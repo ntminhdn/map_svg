@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:mapsvg/mapsvg.dart';
 import 'package:mapsvg/paint_data.dart';
+import 'package:svg_path_parser/svg_path_parser.dart';
 
 List<PaintData> loadMap() {
   final List<PaintData> paints = [];
@@ -56,4 +57,8 @@ Offset _parseOffset(String str) {
 Color _generateRandomColor() {
   final Random random = Random();
   return Color.fromRGBO(random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
+}
+
+Path parsePathDataToPath(String pathData) {
+  return parseSvgPath(pathData);
 }
